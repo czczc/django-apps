@@ -5,6 +5,6 @@ from django.contrib import admin
 from .models import Article
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('arXiv', 'title', 'journal', 'year')
+    list_display = ('arXiv', 'title', 'journal', 'collaboration', 'year', 'citation_count')
 
 admin.site.register(Article, ArticleAdmin)

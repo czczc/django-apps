@@ -26,7 +26,7 @@ class Article(models.Model):
     def save(self, *args, **kwargs):
         # print(self.arXiv, self.title)
         data = self.fetchData()['metadata']
-        self.title = data['titles'][0]['title']
+        self.title = data['titles'][-1]['title']
         self.citation_count = data['citation_count']
         self.doi = data.get('dois', [{}])[0].get('value', '')
         self.author = data['authors'][0]['full_name']
