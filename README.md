@@ -20,16 +20,20 @@ python3.6 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install django
+
 django-admin startproject core
 python manage.py startapp publications
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver 0:8000
 
-
 pip install djangorestframework
 pip install markdown
 pip install django-filter
 pip freeze > requirements.txt
+
+python manage.py makemigrations publications
+python manage.py sqlmigrate publications 0001
+python manage.py migrate
 
 ```
