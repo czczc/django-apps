@@ -4,7 +4,7 @@ import json
 
 # Create your models here.
 class Article(models.Model):
-    arXiv = models.CharField(max_length=15, blank=True)
+    arXiv = models.CharField(max_length=15, blank=True, unique=True)
     title = models.CharField(max_length=200, blank=True)
     year = models.PositiveSmallIntegerField(default=0)
     journal = models.CharField(max_length=25, blank=True)
@@ -12,7 +12,7 @@ class Article(models.Model):
     page = models.CharField(max_length=10, blank=True)
     author = models.CharField(max_length=30, blank=True)
     collaboration = models.CharField(max_length=30, blank=True)
-    doi = models.CharField(max_length=30, blank=True)
+    doi = models.CharField(max_length=60, blank=True)
     bibtex = models.TextField(blank=True)
     citation_count = models.PositiveIntegerField(default=0)
 
