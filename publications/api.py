@@ -17,11 +17,11 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
             'collaboration',
             'doi',
             'citation_count',
-            'url'
         ]
 
 
 # ViewSets define the view behavior.
 class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+    filter_fields = ('collaboration', )
